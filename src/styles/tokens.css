@@ -1,0 +1,39 @@
+/* src/styles/tokens.css */
+:root {
+  /* Backgrounds — deep night sky */
+  --bg-void:       #05040a;
+  --bg-surface:    #0c0b14;
+  --bg-elevated:   #14121f;
+
+  /* Typography — contrast افزایش یافت */
+  --ink-primary:   #f0ece0;   /* روشن‌تر از قبل (#e8e4d9) */
+  --ink-secondary: #b8b2a4;   /* خیلی خواناتر (#7a7568 → #b8b2a4) */
+  --ink-ghost:     #6a6478;   /* دیده می‌شه (#2a2830 → #6a6478) */
+
+  /* Gold — ancient manuscript */
+  --gold:          #d4a84c;   /* کمی روشن‌تر */
+  --gold-dim:      #9a7c3a;   /* خواناتر (#6b5a2a → #9a7c3a) */
+  --gold-glow:     rgba(212,168,76,0.18);
+
+  /* Element colors — کمی روشن‌تر برای خوانایی */
+  --fire:   #d4602a;
+  --water:  #2a6aaa;
+  --earth:  #5a8038;
+  --air:    #7a96a8;
+
+  /* Borders — کمی واضح‌تر */
+  --border-faint:  rgba(240,236,224,0.10);  /* 0.06 → 0.10 */
+  --border-mid:    rgba(240,236,224,0.18);  /* 0.12 → 0.18 */
+  --border-gold:   rgba(212,168,76,0.35);   /* 0.25 → 0.35 */
+
+  /* Timing */
+  --ease-ritual:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fade:      1400ms;
+  --dur-micro:     80ms;
+}
+
+/* Element themes applied to body */
+body.element-fire  { --element-color: var(--fire); }
+body.element-water { --element-color: var(--water); }
+body.element-earth { --element-color: var(--earth); }
+body.element-air   { --element-color: var(--air); }

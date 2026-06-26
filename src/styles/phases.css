@@ -1,0 +1,113 @@
+.phase {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.phase--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.phase__inner {
+  width: 100%;
+  max-width: 540px;
+  padding: 64px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Date input — Phase 0 */
+.date-input-group {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  direction: rtl;
+}
+
+.date-input {
+  background: var(--bg-surface);
+  border: 0.5px solid var(--border-faint);
+  color: var(--ink-primary);
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: 16px;
+  padding: 12px 16px;
+  text-align: center;
+  outline: none;
+  transition: border-color 300ms;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.date-input:focus { border-color: var(--border-gold); }
+.date-input::placeholder { color: var(--ink-ghost); }
+
+/* Tarot cards — Phase 2 */
+.card {
+  perspective: 1000px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.card-inner {
+  width: 80px;
+  height: 130px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s var(--ease-ritual);
+}
+
+.card.revealed .card-inner { transform: rotateY(180deg); }
+
+.card-front, .card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-front {
+  background: var(--bg-elevated);
+  border: 0.5px solid var(--border-faint);
+}
+
+.card-front::after {
+  content: '✦';
+  font-size: 20px;
+  color: var(--ink-ghost);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: var(--bg-surface);
+  border: 0.5px solid var(--border-gold);
+  padding: 8px;
+}
+
+.card.revealed .card-front { border-color: var(--border-mid); }
+
+/* Dividers */
+.ritual-divider {
+  width: 100%;
+  border: none;
+  border-top: 0.5px solid var(--border-faint);
+  margin: 4px 0;
+}
+
+@media (max-width: 600px) {
+  .phase__inner { padding: 40px 16px; gap: 20px; }
+  .card-inner { width: 64px; height: 104px; }
+}
